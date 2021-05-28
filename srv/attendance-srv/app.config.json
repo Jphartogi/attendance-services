@@ -1,0 +1,19 @@
+{
+    "redisConfig":{
+        "host":"localhost:6379",
+        "password":""
+    },
+    "dbConfig":{
+        "username":"postgres",
+        "password":"phartogi",
+        "port":5432,
+        "address":"0.0.0.0",
+        "dbName":"attendance-db"
+    },
+    "authConfig":{
+        "ACCESS_SECRET":"accessphartogi1234",
+        "REFRESH_SECRET":"refresh1234phartogi",
+        "access_token_duration":5,
+        "refresh_token_duration":3600
+    }
+}

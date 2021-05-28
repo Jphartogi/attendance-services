@@ -1,0 +1,29 @@
+version: "3.9"
+services:
+       
+  dev-postgres:
+    image: "postgres" # use latest official postgres version
+    container_name: database
+    env_file:
+      - database.env # configure postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - ${HOME}/postgres-data/:/var/lib/postgresql/data/ # persist data even if container shuts down
+    restart: unless-stopped
+
+  dev-pgadmin:
+    container_name: pgadmin
+    image: "dpage/pgadmin4"
+    ports: 
+      - "80:80"
+    env_file:
+      - database.env
+    restart: unless-stopped
+      
+  dev-redis:
+    container_name: redis
+    image: "redis:6.2-rc3"
+    ports:
+      - "6379:6379"
+    restart: unless-stopped
